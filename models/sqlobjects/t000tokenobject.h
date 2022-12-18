@@ -9,12 +9,14 @@ public:
     QString c000_token;
     int c001_id_usuario {0};
     QDateTime c000_fecha_creacion;
+    QDateTime c000_fecha_actualizacion;
 
     enum PropertyIndex {
         C000Id = 0,
         C000Token,
         C001IdUsuario,
         C000FechaCreacion,
+        C000FechaActualizacion,
     };
 
     int primaryKeyIndex() const override { return C000Id; }
@@ -31,5 +33,7 @@ private:    /*** Don't modify below this line ***/
     T_DEFINE_PROPERTY(int, c001_id_usuario)
     Q_PROPERTY(QDateTime c000_fecha_creacion READ getc000_fecha_creacion WRITE setc000_fecha_creacion)
     T_DEFINE_PROPERTY(QDateTime, c000_fecha_creacion)
+    Q_PROPERTY(QDateTime c000_fecha_actualizacion READ getc000_fecha_actualizacion WRITE setc000_fecha_actualizacion)
+    T_DEFINE_PROPERTY(QDateTime, c000_fecha_actualizacion)
 };
 

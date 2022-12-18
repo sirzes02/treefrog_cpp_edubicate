@@ -45,6 +45,11 @@ T001UsuariosObject T000TokenService::thisTokenExists(THttpRequest &httpRequest) 
     TSqlORMapper<T001UsuariosObject> mapperUser;
     T001UsuariosObject user = mapperUser.findByPrimaryKey(tokenFind);
 
+    if (!user.isNull()) {
+        user.c001_fecha_actualizacion = QDateTime::currentDateTime();
+        user.update();
+    }
+
     return user;
 }
 

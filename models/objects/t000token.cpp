@@ -61,18 +61,29 @@ void T000Token::setC000FechaCreacion(const QDateTime &c000FechaCreacion)
     d->c000_fecha_creacion = c000FechaCreacion;
 }
 
+QDateTime T000Token::c000FechaActualizacion() const
+{
+    return d->c000_fecha_actualizacion;
+}
+
+void T000Token::setC000FechaActualizacion(const QDateTime &c000FechaActualizacion)
+{
+    d->c000_fecha_actualizacion = c000FechaActualizacion;
+}
+
 T000Token &T000Token::operator=(const T000Token &other)
 {
     d = other.d;  // increments the reference count of the data
     return *this;
 }
 
-T000Token T000Token::create(const QString &c000Token, int c001IdUsuario, const QDateTime &c000FechaCreacion)
+T000Token T000Token::create(const QString &c000Token, int c001IdUsuario, const QDateTime &c000FechaCreacion, const QDateTime &c000FechaActualizacion)
 {
     T000TokenObject obj;
     obj.c000_token = c000Token;
     obj.c001_id_usuario = c001IdUsuario;
     obj.c000_fecha_creacion = c000FechaCreacion;
+    obj.c000_fecha_actualizacion = c000FechaActualizacion;
     if (!obj.create()) {
         return T000Token();
     }

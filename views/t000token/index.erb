@@ -17,6 +17,7 @@
     <th>C000 Token</th>
     <th>C001 ID Usuario</th>
     <th>C000 Fecha Creacion</th>
+    <th>C000 Fecha Actualizaci n</th>
   </tr>
 <% tfetch(QList<T000Token>, t000TokenList); %>
 <% for (const auto &i : t000TokenList) { %>
@@ -25,6 +26,7 @@
     <td><%= i.c000Token() %></td>
     <td><%= i.c001IdUsuario() %></td>
     <td><%= i.c000FechaCreacion() %></td>
+    <td><%= i.c000FechaActualización() %></td>
     <td>
       <%== linkTo("Show", urla("show", i.c000Id())) %>
       <%== linkTo("Edit", urla("save", i.c000Id())) %>

@@ -25,6 +25,8 @@ public:
     void setC001IdUsuario(int c001IdUsuario);
     QDateTime c000FechaCreacion() const;
     void setC000FechaCreacion(const QDateTime &c000FechaCreacion);
+    QDateTime c000FechaActualizacion() const;
+    void setC000FechaActualizacion(const QDateTime &c000FechaActualizacion);
     T000Token &operator=(const T000Token &other);
 
     bool create() override { return TAbstractModel::create(); }
@@ -32,7 +34,7 @@ public:
     bool save()   override { return TAbstractModel::save(); }
     bool remove() override { return TAbstractModel::remove(); }
 
-    static T000Token create(const QString &c000Token, int c001IdUsuario, const QDateTime &c000FechaCreacion);
+    static T000Token create(const QString &c000Token, int c001IdUsuario, const QDateTime &c000FechaCreacion, const QDateTime &c000FechaActualizacion);
     static T000Token create(const QVariantMap &values);
     static T000Token get(int c000Id);
     static int count();
