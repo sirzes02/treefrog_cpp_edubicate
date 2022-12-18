@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<%#include "objects/t000token.h" %>
+<% tfetch(T000Token, t000Token); %>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title><%= controller()->name() + ": " + controller()->activeAction() %></title>
+</head>
+<body>
+<p style="color: red"><%=$ error %></p>
+<p style="color: green"><%=$ notice %></p>
+
+<h1>Showing T000 Token</h1>
+<dt>C000 ID</dt><dd><%= t000Token.c000Id() %></dd><br>
+<dt>C000 Token</dt><dd><%= t000Token.c000Token() %></dd><br>
+<dt>C001 ID Usuario</dt><dd><%= t000Token.c001IdUsuario() %></dd><br>
+<dt>C000 Fecha Creacion</dt><dd><%= t000Token.c000FechaCreacion() %></dd><br>
+
+<%== linkTo("Edit", urla("save", t000Token.c000Id())) %> |
+<%== linkTo("Back", urla("index")) %>
+
+</body>
+</html>

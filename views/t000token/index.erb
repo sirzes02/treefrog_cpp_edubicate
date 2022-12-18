@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<%#include "objects/t000token.h" %>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title><%= controller()->name() + ": " + controller()->activeAction() %></title>
+</head>
+<body>
+
+<h1>Listing T000 Token</h1>
+
+<%== linkTo("Create a new T000 Token", urla("create")) %><br>
+<br>
+<table border="1" cellpadding="5" style="border: 1px #d0d0d0 solid; border-collapse: collapse;">
+  <tr>
+    <th>C000 ID</th>
+    <th>C000 Token</th>
+    <th>C001 ID Usuario</th>
+    <th>C000 Fecha Creacion</th>
+  </tr>
+<% tfetch(QList<T000Token>, t000TokenList); %>
+<% for (const auto &i : t000TokenList) { %>
+  <tr>
+    <td><%= i.c000Id() %></td>
+    <td><%= i.c000Token() %></td>
+    <td><%= i.c001IdUsuario() %></td>
+    <td><%= i.c000FechaCreacion() %></td>
+    <td>
+      <%== linkTo("Show", urla("show", i.c000Id())) %>
+      <%== linkTo("Edit", urla("save", i.c000Id())) %>
+      <%== linkTo("Remove", urla("remove", i.c000Id()), Tf::Post, "confirm('Are you sure?')") %>
+    </td>
+  </tr>
+<% } %>
+</table>
+
+</body>
+</html>

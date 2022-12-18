@@ -1,0 +1,16 @@
+HEADERS += t000token_createView.moc
+SOURCES += t000token_createView.cpp
+HEADERS += t000token_indexView.moc
+SOURCES += t000token_indexView.cpp
+HEADERS += t000token_saveView.moc
+SOURCES += t000token_saveView.cpp
+HEADERS += t000token_showView.moc
+SOURCES += t000token_showView.cpp
+
+# include view files in the project
+views.files += ../t000token/create.erb
+views.files += ../t000token/index.erb
+views.files += ../t000token/save.erb
+views.files += ../t000token/show.erb
+views.path = .dummy
+INSTALLS += views

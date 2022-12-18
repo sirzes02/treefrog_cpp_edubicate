@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<%#include "objects/t000token.h" %>
+<% tfetch(QVariantMap, t000Token); %>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title><%= controller()->name() + ": " + controller()->activeAction() %></title>
+</head>
+<body>
+<p style="color: red"><%=$ error %></p>
+<p style="color: green"><%=$ notice %></p>
+
+<h1>New T000 Token</h1>
+
+<%== formTag(urla("create"), Tf::Post) %>
+  <p>
+    <label>C000 Token<br><input name="t000Token[c000Token]" value="<%= t000Token["c000Token"] %>" /></label>
+  </p>
+  <p>
+    <label>C001 ID Usuario<br><input name="t000Token[c001IdUsuario]" value="<%= t000Token["c001IdUsuario"] %>" /></label>
+  </p>
+  <p>
+    <label>C000 Fecha Creacion<br><input name="t000Token[c000FechaCreacion]" value="<%= t000Token["c000FechaCreacion"] %>" /></label>
+  </p>
+  <p>
+    <input type="submit" value="Create" />
+  </p>
+</form>
+
+<%== linkTo("Back", urla("index")) %>
+
+</body>
+</html>
